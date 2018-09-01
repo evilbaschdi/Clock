@@ -12,59 +12,39 @@ namespace Clock
     /// </summary>
     public partial class MainWindow : AcrylicWindow, INotifyPropertyChanged
     {
-        private string _currenttime;
-        private TimeZoneInfo _selectedTimeZone;
+        private string _currentTime;
 
         public MainWindow()
         {
             InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Background);
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.IsEnabled = true;
+            var timer = new DispatcherTimer(DispatcherPriority.Background)
+                                    {
+                                        Interval = TimeSpan.FromSeconds(1),
+                                        IsEnabled = true
+                                    };
             timer.Tick += (s, e) => { UpdateTime(); };
         }
 
         public string CurrentTime
         {
-            get { return _currenttime; }
+            get => _currentTime;
             set
             {
-                _currenttime = value;
+                _currentTime = value;
                 OnPropertyChanged("CurrentTime");
             }
-        }
-
-        public TimeZoneInfo SelectedTimeZone
-        {
-            get { return _selectedTimeZone; }
-            set
-            {
-                _selectedTimeZone = value;
-                OnPropertyChanged("SelectedTimeZone");
-                UpdateTime();
-            }
-        }
-
-        public List<TimeZoneInfo> TimeZones
-        {
-            get { return TimeZoneInfo.GetSystemTimeZones().ToList(); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void UpdateTime()
         {
-            CurrentTime = SelectedTimeZone == null
-                ? DateTime.Now.ToLongTimeString()
-                : DateTime.UtcNow.AddHours(SelectedTimeZone.BaseUtcOffset.TotalHours).ToLongTimeString();
+            CurrentTime = DateTime.Now.ToLongTimeString();
         }
 
-        public void OnPropertyChanged(string property)
+        private void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }
