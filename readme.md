@@ -1,0 +1,1 @@
+based on https://stackoverflow.com/questions/14470768/a-clock-in-c-sharp-wpf-application
