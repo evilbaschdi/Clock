@@ -1,50 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows.Threading;
+﻿using System.Windows;
+using Clock.ViewModel;
 using SourceChord.FluentWPF;
 
 namespace Clock
 {
+    /// <inheritdoc cref="AcrylicWindow" />
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : AcrylicWindow, INotifyPropertyChanged
+    public partial class MainWindow : AcrylicWindow
     {
-        private string _currentTime;
+        private readonly MainViewModel _mainViewModel;
 
+        /// <summary>
+        ///     Constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            var timer = new DispatcherTimer(DispatcherPriority.Background)
-                                    {
-                                        Interval = TimeSpan.FromSeconds(1),
-                                        IsEnabled = true
-                                    };
-            timer.Tick += (s, e) => { UpdateTime(); };
+            _mainViewModel = new ClockViewModel();
+            Loaded += MainWindowLoaded;
         }
 
-        public string CurrentTime
-        {
-            get => _currentTime;
-            set
-            {
-                _currentTime = value;
-                OnPropertyChanged("CurrentTime");
-            }
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void UpdateTime()
+        private void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
-            CurrentTime = DateTime.Now.ToLongTimeString();
-        }
-
-        private void OnPropertyChanged(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            DataContext = _mainViewModel;
         }
     }
 }
