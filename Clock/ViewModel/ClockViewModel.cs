@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Windows.Input;
 using System.Windows.Threading;
+using Clock.Internal.About;
+using Clock.Internal.About.View;
+using Clock.Internal.Core;
 
 namespace Clock.ViewModel
 {
@@ -9,10 +13,10 @@ namespace Clock.ViewModel
     /// </summary>
     public class ClockViewModel : MainViewModel
     {
+        private string _currentTime;
         private int _hour;
         private int _minute;
         private int _second;
-        private string _currentTime;
 
         /// <summary>
         ///     Constructor
@@ -20,6 +24,27 @@ namespace Clock.ViewModel
         public ClockViewModel()
         {
             InitTimer();
+            AboutWindowClick = new RelayCommand(rc => ShowAboutWindow());
+        }
+
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public ICommand AboutWindowClick { get; set; }
+
+        /// <summary>
+        ///     Current time as a string
+        /// </summary>
+        public string CurrentTime
+        {
+            get => _currentTime;
+            set
+            {
+                if (_currentTime != value)
+                {
+                    _currentTime = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         /// <summary>
@@ -71,22 +96,6 @@ namespace Clock.ViewModel
         }
 
         /// <summary>
-        ///     Current time as a string
-        /// </summary>
-        public string CurrentTime
-        {
-            get => _currentTime;
-            set
-            {
-                if (_currentTime != value)
-                {
-                    _currentTime = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        /// <summary>
         ///     Initializes a new DispatcherTimer to update current time
         /// </summary>
         public void InitTimer()
@@ -106,6 +115,16 @@ namespace Clock.ViewModel
             Hour = now.Hour;
             Minute = now.Minute;
             Second = now.Second;
+        }
+
+        private void ShowAboutWindow()
+        {
+            var aboutWindow = new AboutWindow();
+            var assembly = typeof(MainWindow).Assembly;
+
+            IAboutWindowContent aboutWindowContent = new AboutWindowContent(assembly, $@"{AppDomain.CurrentDomain.BaseDirectory}\clock.png");
+            aboutWindow.DataContext = new AboutViewModel(aboutWindowContent);
+            aboutWindow.Show();
         }
     }
 }
