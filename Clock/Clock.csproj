@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <TieredCompilation>true</TieredCompilation>
     <UseWPF>true</UseWPF>
-    <Version>2019.3.13.746</Version>
     <Authors>Sebastian Walter</Authors>
-    <Copyright>Copyright © 2018 - 2019 evilbaschdi</Copyright>
-    <Company>evilbaschdi</Company>
+    <Company>evilbaschdi (Sebastian Walter)</Company>
+    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))-develop</Version>
+    <Copyright>Copyright © 2018 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RuntimeIdentifiers>win</RuntimeIdentifiers>
     <ApplicationIcon>clock.ico</ApplicationIcon>
@@ -23,13 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2018.416.22.11" />
-    <PackageReference Include="FluentWPF" Version="0.6.1" />
-    <PackageReference Include="DeltaCompressionDotNet" Version="1.1.0" />
-    <PackageReference Include="Mono.Cecil" Version="0.10.3" />
-    <PackageReference Include="SharpCompress" Version="0.17.1" />
-    <PackageReference Include="Splat" Version="6.1.7" />
-    <PackageReference Include="squirrel.windows" Version="1.9.1" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2019.10.10.1115-develop" />
+    <PackageReference Include="FluentWPF" Version="0.8.0-alpha004" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
   </ItemGroup>
 
