@@ -120,7 +120,7 @@ namespace Clock.ViewModel
         private void ShowAboutWindow()
         {
             var assembly = typeof(MainWindow).Assembly;
-            IAboutWindowContent aboutWindowContent = new AboutWindowContent(assembly, $@"{AppDomain.CurrentDomain.BaseDirectory}\clock.png");
+            IAboutWindowContent aboutWindowContent = new AboutWindowContent(assembly, $@"{AppDomain.CurrentDomain.BaseDirectory}\res\clock_512.png");
 
             var aboutWindow = new AboutWindow
                               {

@@ -23,14 +23,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2019.10.10.1115-develop" />
-    <PackageReference Include="FluentWPF" Version="0.8.0-alpha004" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2019.11.4.16-develop" />
+    <PackageReference Include="FluentWPF" Version="0.8.0" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="clock.ico" />
-    <Content Include="clock.png">
+    <Content Include="res\clock_70.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\clock_150.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\clock_512.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Clock.VisualElementsManifest.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
