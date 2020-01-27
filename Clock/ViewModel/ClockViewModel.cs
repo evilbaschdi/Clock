@@ -29,13 +29,19 @@ namespace Clock.ViewModel
 
 
         // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
+#pragma warning disable 1591
         public ICommand AboutWindowClick { get; set; }
+#pragma warning restore 1591
 
         /// <summary>
         ///     Current time as a string
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public string CurrentTime
         {
+            // ReSharper disable once UnusedMember.Global
             get => _currentTime;
             set
             {
@@ -50,8 +56,10 @@ namespace Clock.ViewModel
         /// <summary>
         ///     Hour of current time
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public int Hour
         {
+            // ReSharper disable once UnusedMember.Global
             get => _hour;
             set
             {
@@ -66,8 +74,10 @@ namespace Clock.ViewModel
         /// <summary>
         ///     Minute of current time
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public int Minute
         {
+            // ReSharper disable once UnusedMember.Global
             get => _minute;
             set
             {
@@ -82,8 +92,10 @@ namespace Clock.ViewModel
         /// <summary>
         ///     Second of current time
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public int Second
         {
+            // ReSharper disable once UnusedMember.Global
             get => _second;
             set
             {
@@ -98,6 +110,7 @@ namespace Clock.ViewModel
         /// <summary>
         ///     Initializes a new DispatcherTimer to update current time
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public void InitTimer()
         {
             var timer = new DispatcherTimer(DispatcherPriority.Background)
