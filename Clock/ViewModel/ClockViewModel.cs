@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Windows.Threading;
-using Clock.Internal.About;
-using Clock.Internal.About.View;
 using Clock.Internal.Core;
+using EvilBaschdi.WpfControls.Internal;
+using EvilBaschdi.WpfControls.ViewModel;
 
 namespace Clock.ViewModel
 {
@@ -11,7 +13,7 @@ namespace Clock.ViewModel
     /// <summary>
     ///     MainViewModel of Clock
     /// </summary>
-    public class ClockViewModel : MainViewModel
+    public sealed class ClockViewModel : INotifyPropertyChanged
     {
         private string _currentTime;
         private int _hour;
@@ -24,7 +26,7 @@ namespace Clock.ViewModel
         public ClockViewModel()
         {
             InitTimer();
-            AboutWindowClick = new RelayCommand(rc => ShowAboutWindow());
+            AboutWindowClick = new RelayCommand(_ => ShowAboutWindow());
         }
 
 
@@ -43,13 +45,15 @@ namespace Clock.ViewModel
         {
             // ReSharper disable once UnusedMember.Global
             get => _currentTime;
-            set
+            private set
             {
-                if (_currentTime != value)
+                if (_currentTime == value)
                 {
-                    _currentTime = value;
-                    OnPropertyChanged();
+                    return;
                 }
+
+                _currentTime = value;
+                OnPropertyChanged();
             }
         }
 
@@ -63,11 +67,13 @@ namespace Clock.ViewModel
             get => _hour;
             set
             {
-                if (_hour != value)
+                if (_hour == value)
                 {
-                    _hour = value;
-                    OnPropertyChanged();
+                    return;
                 }
+
+                _hour = value;
+                OnPropertyChanged();
             }
         }
 
@@ -81,11 +87,13 @@ namespace Clock.ViewModel
             get => _minute;
             set
             {
-                if (_minute != value)
+                if (_minute == value)
                 {
-                    _minute = value;
-                    OnPropertyChanged();
+                    return;
                 }
+
+                _minute = value;
+                OnPropertyChanged();
             }
         }
 
@@ -99,13 +107,18 @@ namespace Clock.ViewModel
             get => _second;
             set
             {
-                if (_second != value)
+                if (_second == value)
                 {
-                    _second = value;
-                    OnPropertyChanged();
+                    return;
                 }
+
+                _second = value;
+                OnPropertyChanged();
             }
         }
+
+        /// <inheritdoc />
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         ///     Initializes a new DispatcherTimer to update current time
@@ -118,7 +131,7 @@ namespace Clock.ViewModel
                             Interval = TimeSpan.FromMilliseconds(1),
                             IsEnabled = true
                         };
-            timer.Tick += (s, e) => { UpdateTime(); };
+            timer.Tick += (_, _) => { UpdateTime(); };
         }
 
         private void UpdateTime()
@@ -130,7 +143,7 @@ namespace Clock.ViewModel
             Second = now.Second;
         }
 
-        private void ShowAboutWindow()
+        private static void ShowAboutWindow()
         {
             var assembly = typeof(MainWindow).Assembly;
             IAboutWindowContent aboutWindowContent = new AboutWindowContent(assembly, $@"{AppDomain.CurrentDomain.BaseDirectory}\res\clock_512.png");
@@ -142,6 +155,16 @@ namespace Clock.ViewModel
 
 
             aboutWindow.ShowDialog();
+        }
+
+        /// <summary>
+        ///     INotifyPropertyChanged - method to synchronize UI and Property.
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            handler?.Invoke(this, new(propertyName));
         }
     }
 }

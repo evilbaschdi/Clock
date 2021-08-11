@@ -1,11 +1,11 @@
 ﻿using SourceChord.FluentWPF;
 
-namespace Clock.Internal.About.View
+namespace Clock
 {
-    /// <inheritdoc cref="AcrylicWindow" />
     /// <summary>
     ///     Interaction logic for AboutWindow.xaml
     /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class AboutWindow : AcrylicWindow
     {
         /// <inheritdoc />

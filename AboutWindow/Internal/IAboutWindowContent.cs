@@ -1,6 +1,6 @@
 ﻿using EvilBaschdi.Core;
 
-namespace Clock.Internal.About
+namespace EvilBaschdi.WpfControls.Internal
 {
     /// <inheritdoc />
     public interface IAboutWindowContent : IValue<AboutWindowConfiguration>

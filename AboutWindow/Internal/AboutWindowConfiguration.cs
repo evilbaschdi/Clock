@@ -1,4 +1,4 @@
-﻿namespace Clock.Internal.About
+﻿namespace EvilBaschdi.WpfControls.Internal
 {
     /// <summary>
     /// </summary>
@@ -6,30 +6,30 @@
     {
         /// <summary>
         /// </summary>
-        public string ApplicationTitle { get; set; }
+        public string ApplicationTitle { get; init; }
 
         /// <summary>
         /// </summary>
-        public string Company { get; set; }
+        public string Authors { get; init; }
 
         /// <summary>
         /// </summary>
-        public string Copyright { get; set; }
+        public string Company { get; init; }
 
         /// <summary>
         /// </summary>
-        public string Description { get; set; }
+        public string Copyright { get; init; }
 
         /// <summary>
         /// </summary>
-        public string LogoSourcePath { get; set; }
+        public string Description { get; init; }
 
         /// <summary>
         /// </summary>
-        public string ProductName { get; set; }
+        public string LogoSourcePath { get; init; }
 
         /// <summary>
         /// </summary>
-        public string Version { get; set; }
+        public string Version { get; init; }
     }
 }

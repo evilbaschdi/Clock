@@ -8,9 +8,10 @@ namespace Clock
     /// <summary>
     ///     Interaction logic for MainWindow.xaml
     /// </summary>
+    // ReSharper disable once RedundantExtendsListEntry
     public partial class MainWindow : AcrylicWindow
     {
-        private readonly MainViewModel _mainViewModel;
+        private readonly ClockViewModel _mainViewModel;
 
         /// <summary>
         ///     Constructor
@@ -18,7 +19,7 @@ namespace Clock
         public MainWindow()
         {
             InitializeComponent();
-            _mainViewModel = new ClockViewModel();
+            _mainViewModel = new();
             Loaded += MainWindowLoaded;
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
-using Clock.Internal.About;
+using EvilBaschdi.WpfControls.Internal;
 
-namespace Clock.ViewModel
+namespace EvilBaschdi.WpfControls.ViewModel
 {
     /// <summary>
     /// </summary>
@@ -24,7 +24,7 @@ namespace Clock.ViewModel
 
         /// <summary>
         /// </summary>
-        public string Company => _aboutWindowContent.Value.Company;
+        public string Company => $"Company / Authors: {_aboutWindowContent.Value.Company}";
 
         /// <summary>
         /// </summary>
@@ -40,11 +40,6 @@ namespace Clock.ViewModel
 
         /// <summary>
         /// </summary>
-        public string ProductName => _aboutWindowContent.Value.ProductName;
-
-        /// <summary>
-        /// </summary>
-
         public string Version => $"Version: {_aboutWindowContent.Value.Version}";
     }
 }
