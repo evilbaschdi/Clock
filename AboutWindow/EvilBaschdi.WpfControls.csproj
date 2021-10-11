@@ -5,6 +5,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2021.9.27.1934-develop" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2021.10.11.609-develop" />
   </ItemGroup>
 </Project>
