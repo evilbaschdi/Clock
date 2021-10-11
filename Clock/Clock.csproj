@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <TieredCompilation>true</TieredCompilation>
     <UseWPF>true</UseWPF>
     <Authors>Sebastian Walter</Authors>
@@ -15,7 +15,7 @@
     <PackageIconUrl>clock.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/evilbaschdi/Clock</RepositoryUrl>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Clock.xml</DocumentationFile>
-    <LangVersion>9</LangVersion>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2021.7.12.1538-develop" />
-    <PackageReference Include="FluentWPF" Version="0.10.0-alpha003" />
+    <PackageReference Include="EvilBaschdi.Core" Version="2021.9.27.1934-develop" />
+    <PackageReference Include="FluentWPF" Version="0.10.2" />
     <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
   </ItemGroup>
 
