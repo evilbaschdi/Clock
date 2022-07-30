@@ -1,12 +1,11 @@
 ﻿using System.Windows;
 
-namespace Clock
+namespace Clock;
+
+/// <summary>
+///     Interaction logic for App.xaml
+/// </summary>
+// ReSharper disable once RedundantExtendsListEntry
+public partial class App : Application
 {
-    /// <summary>
-    ///     Interaction logic for App.xaml
-    /// </summary>
-    // ReSharper disable once RedundantExtendsListEntry
-    public partial class App : Application
-    {
-    }
 }

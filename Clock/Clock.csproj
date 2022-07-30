@@ -1,67 +1,76 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <TieredCompilation>true</TieredCompilation>
-    <UseWPF>true</UseWPF>
-    <Authors>Sebastian Walter</Authors>
-    <Company>evilbaschdi (Sebastian Walter)</Company>
-    <Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))</Version>
-    <Copyright>Copyright © 2018 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <RuntimeIdentifiers>win</RuntimeIdentifiers>
-    <ApplicationIcon>clock.ico</ApplicationIcon>
-    <PackageIconUrl>clock.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/evilbaschdi/Clock</RepositoryUrl>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Clock.xml</DocumentationFile>
-    <LangVersion>preview</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
+		<TieredCompilation>true</TieredCompilation>
+		<UseWPF>true</UseWPF>
+		<Authors>Sebastian Walter</Authors>
+		<Company>evilbaschdi (Sebastian Walter)</Company>
+		<Version>$([System.DateTime]::UtcNow.ToString(yyyy.M.d.Hmm))</Version>
+		<Copyright>Copyright © 2018 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<ApplicationIcon>clock.ico</ApplicationIcon>
+		<PackageIconUrl>clock.png</PackageIconUrl>
+		<RepositoryUrl>https://github.com/evilbaschdi/Clock</RepositoryUrl>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Clock.xml</DocumentationFile>
+		<LangVersion>preview</LangVersion>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="clock.ico" />
-    <None Remove="clock.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="clock.ico" />
+		<None Remove="clock.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="EvilBaschdi.Core" Version="2021.10.11.609-develop" />
-    <PackageReference Include="FluentWPF" Version="0.10.2" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="EvilBaschdi.Core" Version="2022.7.10.802-develop" />
+		<PackageReference Include="WPF-UI" Version="2.0.2" />
+		<PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="clock.ico" />
-    <Content Include="res\clock_70.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\clock_150.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\clock_512.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Clock.VisualElementsManifest.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="clock.ico" />
+		<Content Include="res\clock_70.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="res\clock_150.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="about.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Clock.VisualElementsManifest.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AboutWindow\EvilBaschdi.WpfControls.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AboutWindow\EvilBaschdi.WpfControls.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
 
 </Project>

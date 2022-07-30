@@ -1,87 +1,85 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace Clock.Internal.Core
+namespace Clock.Internal.Core;
+
+/// <inheritdoc />
+public class RelayCommand : ICommand
 {
-    /// <inheritdoc />
-    public class RelayCommand : ICommand
+    private Predicate<object> _canExecute;
+    private Action<object> _execute;
+
+    /// <summary>
+    ///     Constructor
+    /// </summary>
+    /// <param name="execute"></param>
+    public RelayCommand(Action<object> execute)
+        : this(execute, DefaultCanExecute)
     {
-        private Predicate<object> _canExecute;
-        private Action<object> _execute;
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="execute"></param>
-        public RelayCommand(Action<object> execute)
-            : this(execute, DefaultCanExecute)
-        {
-        }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="execute"></param>
-        /// <param name="canExecute"></param>
-        // ReSharper disable once MemberCanBePrivate.Global
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
-        }
+    }
 
-        /// <inheritdoc />
-        public event EventHandler CanExecuteChanged
-        {
-            add
-            {
-                CommandManager.RequerySuggested += value;
-                CanExecuteChangedInternal += value;
-            }
+    /// <summary>
+    ///     Constructor
+    /// </summary>
+    /// <param name="execute"></param>
+    /// <param name="canExecute"></param>
+    // ReSharper disable once MemberCanBePrivate.Global
+    public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+    {
+        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        _canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
+    }
 
-            remove
-            {
-                CommandManager.RequerySuggested -= value;
-                CanExecuteChangedInternal -= value;
-            }
+    /// <inheritdoc />
+    public event EventHandler CanExecuteChanged
+    {
+        add
+        {
+            CommandManager.RequerySuggested += value;
+            CanExecuteChangedInternal += value;
         }
 
-        /// <inheritdoc />
-        public bool CanExecute(object parameter)
+        remove
         {
-            return _canExecute != null && _canExecute(parameter);
+            CommandManager.RequerySuggested -= value;
+            CanExecuteChangedInternal -= value;
         }
+    }
 
-        /// <inheritdoc />
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
+    /// <inheritdoc />
+    public bool CanExecute(object parameter)
+    {
+        return _canExecute != null && _canExecute(parameter);
+    }
 
-        private event EventHandler CanExecuteChangedInternal;
+    /// <inheritdoc />
+    public void Execute(object parameter)
+    {
+        _execute(parameter);
+    }
 
-        // ReSharper disable once UnusedMember.Global
-        /// <summary>
-        /// 
-        /// </summary>
-        public void OnCanExecuteChanged()
-        {
-            var handler = CanExecuteChangedInternal;
-            //DispatcherHelper.BeginInvokeOnUIThread(() => handler.Invoke(this, EventArgs.Empty));
-            handler?.Invoke(this, EventArgs.Empty);
-        }
+    private event EventHandler CanExecuteChangedInternal;
 
-        // ReSharper disable once UnusedMember.Global
-        /// <summary>
-        /// 
-        /// </summary>
-        public void Destroy()
-        {
-            _canExecute = _ => false;
-            _execute = _ => { };
-        }
+    // ReSharper disable once UnusedMember.Global
+    /// <summary>
+    /// </summary>
+    public void OnCanExecuteChanged()
+    {
+        var handler = CanExecuteChangedInternal;
+        //DispatcherHelper.BeginInvokeOnUIThread(() => handler.Invoke(this, EventArgs.Empty));
+        handler?.Invoke(this, EventArgs.Empty);
+    }
 
-        private static bool DefaultCanExecute(object parameter)
-        {
-            return true;
-        }
+    // ReSharper disable once UnusedMember.Global
+    /// <summary>
+    /// </summary>
+    public void Destroy()
+    {
+        _canExecute = _ => false;
+        _execute = _ => { };
+    }
+
+    private static bool DefaultCanExecute(object parameter)
+    {
+        return true;
     }
 }

@@ -1,9 +1,8 @@
 ﻿using EvilBaschdi.Core;
 
-namespace EvilBaschdi.WpfControls.Internal
+namespace EvilBaschdi.WpfControls.Internal;
+
+/// <inheritdoc />
+public interface IAboutWindowContent : IValue<AboutWindowConfiguration>
 {
-    /// <inheritdoc />
-    public interface IAboutWindowContent : IValue<AboutWindowConfiguration>
-    {
-    }
 }

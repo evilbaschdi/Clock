@@ -1,17 +1,28 @@
-﻿using SourceChord.FluentWPF;
+﻿using System.Windows;
+using EvilBaschdi.WpfControls.ViewModel;
+using JetBrains.Annotations;
 
-namespace Clock
+namespace Clock;
+
+/// <summary>
+///     Interaction logic for AboutWindow.xaml
+/// </summary>
+// ReSharper disable once RedundantExtendsListEntry
+public partial class AboutWindow
 {
-    /// <summary>
-    ///     Interaction logic for AboutWindow.xaml
-    /// </summary>
-    // ReSharper disable once RedundantExtendsListEntry
-    public partial class AboutWindow : AcrylicWindow
+    [NotNull] private readonly IAboutModel _aboutModel;
+
+    /// <inheritdoc />
+    public AboutWindow([NotNull] IAboutModel aboutModel)
     {
-        /// <inheritdoc />
-        public AboutWindow()
-        {
-            InitializeComponent();
-        }
+        _aboutModel = aboutModel ?? throw new ArgumentNullException(nameof(aboutModel));
+        InitializeComponent();
+
+        Loaded += AboutWindowLoaded;
+    }
+
+    private void AboutWindowLoaded(object sender, RoutedEventArgs e)
+    {
+        DataContext = _aboutModel;
     }
 }
