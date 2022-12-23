@@ -10,7 +10,7 @@
              WindowBackdropType="Mica"
              WindowCornerPreference="Round"
              WindowStartupLocation="CenterScreen"
-             xmlns:baschdi="clr-namespace:EvilBaschdi.WpfControls;assembly=EvilBaschdi.WpfControls"
+             xmlns:about="clr-namespace:EvilBaschdi.About.Wpf;assembly=EvilBaschdi.About.Wpf"
              mc:Ignorable="d"
              ResizeMode="NoResize"
              Title="AboutWindow" Height="460" Width="530">
@@ -26,7 +26,7 @@
         <Grid Grid.Row="1">
 
             <StackPanel>
-                <baschdi:AboutControl />
+                <about:AboutControl />
             </StackPanel>
         </Grid>
     </Grid>

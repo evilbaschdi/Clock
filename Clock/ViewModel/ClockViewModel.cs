@@ -3,7 +3,9 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Clock.Internal.Core;
-using EvilBaschdi.WpfControls.ViewModel;
+using EvilBaschdi.About.Core;
+using EvilBaschdi.About.Core.Models;
+using EvilBaschdi.Core;
 
 namespace Clock.ViewModel;
 

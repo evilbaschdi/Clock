@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using EvilBaschdi.WpfControls.ViewModel;
+using EvilBaschdi.About.Core.Models;
 using JetBrains.Annotations;
 
 namespace Clock;

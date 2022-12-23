@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using System.Windows;
+using EvilBaschdi.Core;
 
-namespace EvilBaschdi.WpfControls.ViewModel;
+namespace Clock.Internal.Core;
 
 /// <inheritdoc />
 public class CurrentAssembly : ICurrentAssembly

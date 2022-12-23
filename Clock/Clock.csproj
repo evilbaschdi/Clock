@@ -13,6 +13,7 @@
 		<ApplicationIcon>clock.ico</ApplicationIcon>
 		<PackageIconUrl>clock.png</PackageIconUrl>
 		<RepositoryUrl>https://github.com/evilbaschdi/Clock</RepositoryUrl>
+		<!-- ReSharper disable once UnknownProperty -->
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Clock.xml</DocumentationFile>
 		<LangVersion>preview</LangVersion>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
@@ -25,7 +26,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EvilBaschdi.Core" Version="2022.7.10.802-develop" />
+		<PackageReference Include="EvilBaschdi.Core" Version="2022.11.29.1736-develop" />
+		<PackageReference Include="EvilBaschdi.About.Wpf" Version="2022.12.23.1407-develop" />
 		<PackageReference Include="WPF-UI" Version="2.0.3" />
 		<PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1">
 			<PrivateAssets>all</PrivateAssets>
@@ -52,18 +54,6 @@
 		<Content Include="Clock.VisualElementsManifest.xml">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\AboutWindow\EvilBaschdi.WpfControls.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Properties\Settings.Designer.cs">
-			<DesignTimeSharedInput>True</DesignTimeSharedInput>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Settings.settings</DependentUpon>
-		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
