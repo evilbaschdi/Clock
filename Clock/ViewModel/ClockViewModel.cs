@@ -5,7 +5,10 @@ using System.Windows.Threading;
 using Clock.Internal.Core;
 using EvilBaschdi.About.Core;
 using EvilBaschdi.About.Core.Models;
+using EvilBaschdi.About.Wpf;
 using EvilBaschdi.Core;
+using EvilBaschdi.Core.Wpf;
+using CurrentAssembly = Clock.Internal.Core.CurrentAssembly;
 
 namespace Clock.ViewModel;
 
@@ -146,8 +149,9 @@ public sealed class ClockViewModel : INotifyPropertyChanged
     {
         ICurrentAssembly currentAssembly = new CurrentAssembly();
         IAboutContent aboutContent = new AboutContent(currentAssembly);
-        IAboutModel aboutModel = new AboutViewModel(aboutContent);
-        var aboutWindow = new AboutWindow(aboutModel);
+        IAboutViewModel aboutViewModel = new AboutViewModel(aboutContent);
+        IApplyMicaBrush applyMicaBrush = new ApplyMicaBrush();
+        var aboutWindow = new AboutWindow(aboutViewModel, applyMicaBrush);
 
         aboutWindow.ShowDialog();
     }
