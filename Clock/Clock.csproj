@@ -12,6 +12,7 @@
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<ApplicationIcon>clock.ico</ApplicationIcon>
 		<PackageIconUrl>clock.png</PackageIconUrl>
+		<PublishSingleFile>true</PublishSingleFile>
 		<RepositoryUrl>https://github.com/evilbaschdi/Clock</RepositoryUrl>
 		<!-- ReSharper disable once UnknownProperty -->
 		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Clock.xml</DocumentationFile>
@@ -26,18 +27,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EvilBaschdi.Core" Version="2023.2.21.1731" />
-		<PackageReference Include="EvilBaschdi.About.Wpf" Version="2023.2.19.836-develop" />
-		<PackageReference Include="WPF-UI" Version="3.0.0-preview.1" />
-		<PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1">
+		<PackageReference Include="EvilBaschdi.Core" />
+		<PackageReference Include="EvilBaschdi.About.Wpf" />
+		<PackageReference Include="WPF-UI" />
+		<PackageReference Include="Microsoft.SourceLink.AzureRepos.Git">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+		<PackageReference Include="Microsoft.SourceLink.GitHub">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+		<PackageReference Include="System.Drawing.Primitives" />
 	</ItemGroup>
 
 	<ItemGroup>

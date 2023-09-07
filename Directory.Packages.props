@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="EvilBaschdi.About.Wpf" Version="2023.7.7.700-develop" />
+    <PackageVersion Include="EvilBaschdi.Core" Version="2023.7.5.1535-develop" />
+    <PackageVersion Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <PackageVersion Include="System.Drawing.Primitives" Version="4.3.0" />
+    <PackageVersion Include="WPF-UI" Version="3.0.0-preview.6" />
+  </ItemGroup>
+</Project>

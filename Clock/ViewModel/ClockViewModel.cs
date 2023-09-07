@@ -151,7 +151,8 @@ public sealed class ClockViewModel : INotifyPropertyChanged
         IAboutContent aboutContent = new AboutContent(currentAssembly);
         IAboutViewModel aboutViewModel = new AboutViewModel(aboutContent);
         IApplyMicaBrush applyMicaBrush = new ApplyMicaBrush();
-        var aboutWindow = new AboutWindow(aboutViewModel, applyMicaBrush);
+        IApplicationLayout applicationLayout = new ApplicationLayout();
+        var aboutWindow = new AboutWindow(aboutViewModel, applicationLayout, applyMicaBrush);
 
         aboutWindow.ShowDialog();
     }
