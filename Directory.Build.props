@@ -1,0 +1,6 @@
+<Project>
+	<PropertyGroup>
+		<Copyright>Copyright © 2018 - $([System.DateTime]::UtcNow.ToString(yyyy)) evilbaschdi</Copyright>
+		<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+	</PropertyGroup>
+</Project>
