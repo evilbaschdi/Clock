@@ -1,11 +1,14 @@
-﻿using System;
-using Avalonia.Threading;
+﻿using Avalonia.Threading;
 using ReactiveUI;
 
 namespace Clock.Avalonia.ViewModels;
 
+/// <inheritdoc />
 public class MainViewModel : ViewModelBase
 {
+    /// <summary>
+    ///     Constructor
+    /// </summary>
     public MainViewModel()
     {
         InitTimer();
@@ -13,6 +16,8 @@ public class MainViewModel : ViewModelBase
 
     private string _currentTime;
 
+    /// <summary>
+    /// </summary>
     public string CurrentTime
     {
         get => _currentTime;
@@ -36,6 +41,6 @@ public class MainViewModel : ViewModelBase
     private void UpdateTime()
     {
         var now = DateTime.Now;
-        CurrentTime = now.ToLongTimeString();
+        CurrentTime = now.ToString("HH:mm:ss");
     }
 }

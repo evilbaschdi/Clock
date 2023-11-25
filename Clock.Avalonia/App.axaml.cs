@@ -1,4 +1,3 @@
-using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -45,17 +44,17 @@ public class App : Application
             case IClassicDesktopStyleApplicationLifetime desktop:
 
                 desktop.MainWindow = new MainWindow
-                {
-                    DataContext = ServiceProvider.GetRequiredService<MainViewModel>()
-                };
+                                     {
+                                         DataContext = ServiceProvider.GetRequiredService<MainViewModel>()
+                                     };
                 break;
             case ISingleViewApplicationLifetime singleViewPlatform:
 
                 singleViewPlatform.MainView = new MainView
-                {
-                    DataContext = ServiceProvider.GetRequiredService<MainViewModel>(),
-                    //DisplayFontSize = 50d
-                };
+                                              {
+                                                  DataContext = ServiceProvider.GetRequiredService<MainViewModel>(),
+                                                  //DisplayFontSize = 50d
+                                              };
                 break;
         }
 

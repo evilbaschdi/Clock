@@ -1,7 +1,7 @@
-using UIKit;
-
 namespace Clock.Avalonia.iOS;
 
+/// <summary>
+/// </summary>
 public class Application
 {
     // This is the main entry point of the application.

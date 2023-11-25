@@ -1,26 +1,24 @@
 ﻿<!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
-<ui:FluentWindow x:Class="Clock.WpfUi.MainWindow" Icon="clock.ico"
-                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                 xmlns:viewModel="clr-namespace:Clock.WpfUi.ViewModel"
-                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+<Window x:Class="Clock.WpfUi.MainWindow" Icon="/Assets/clock.ico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Clock.WpfUi.ViewModel"
+        WindowStartupLocation="CenterScreen"
+        FontSize="200"
+        mc:Ignorable="d"
+        Title="" Height="400" Width="1000" d:DataContext="{d:DesignInstance viewModel:ClockViewModel}">
 
-                 ExtendsContentIntoTitleBar="True"
-                 WindowBackdropType="Mica"
-                 WindowCornerPreference="Round"
-                 WindowStartupLocation="CenterScreen"
-                 mc:Ignorable="d"
-                 Title="" Height="400" Width="1000" d:DataContext="{d:DesignInstance viewModel:ClockViewModel}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="-1" UseAeroCaptionButtons="True" />
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <ui:TitleBar Grid.Row="0" Icon="clock.ico" />
 
         <Grid Grid.Row="1">
 
@@ -36,7 +34,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Column="1" Grid.Row="1">
-                <TextBlock Text="{Binding CurrentTime}" FontSize="200" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
+                <TextBlock Text="{Binding CurrentTime}" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center">
                     <TextBlock.InputBindings>
                         <MouseBinding Command="{Binding AboutWindowClick}" MouseAction="LeftClick" />
                     </TextBlock.InputBindings>
@@ -45,4 +43,4 @@
 
         </Grid>
     </Grid>
-</ui:FluentWindow>
+</Window>

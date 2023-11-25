@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Clock.Avalonia.Views;
 
+/// <inheritdoc />
 public partial class MainWindow : Window
 {
     /// <summary>

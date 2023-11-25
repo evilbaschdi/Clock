@@ -1,12 +1,13 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Clock.Avalonia.ViewModels;
 
 namespace Clock.Avalonia;
 
+/// <inheritdoc />
 public class ViewLocator : IDataTemplate
 {
+    /// <inheritdoc />
     public Control Build(object data)
     {
         if (data is null)
@@ -25,6 +26,7 @@ public class ViewLocator : IDataTemplate
         return new TextBlock { Text = name };
     }
 
+    /// <inheritdoc />
     public bool Match(object data)
     {
         return data is ViewModelBase;

@@ -1,27 +1,25 @@
 <Project>
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-		<CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageVersion Include="Avalonia" Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Android"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Browser"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Desktop"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Diagnostics"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Fonts.Inter" Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.iOS"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.ReactiveUI"  Version="11.0.4"/>
-		<PackageVersion Include="Avalonia.Themes.Fluent" Version="11.0.4" />
-		<PackageVersion Include="EvilBaschdi.About.Wpf" Version="2023.7.7.700-develop" />
-		<PackageVersion Include="EvilBaschdi.About.Avalonia" Version="2023.7.7.700-develop" />
-		<PackageVersion Include="EvilBaschdi.Core.Avalonia" Version="2023.8.20.627-develop" />
-		<PackageVersion Include="EvilBaschdi.Core" Version="2023.7.5.1535-develop" />
-		<PackageVersion Include="EvilBaschdi.DependencyInjection" Version="2023.8.9.503-develop" />
-		<PackageVersion Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" />
-		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
-		<PackageVersion Include="System.Drawing.Primitives" Version="4.3.0" />
-		<PackageVersion Include="WPF-UI" Version="3.0.0-preview.6" />
-		<PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.2" />
-	</ItemGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Avalonia" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Android" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Browser" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Desktop" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.iOS" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.ReactiveUI" Version="11.0.5" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="11.0.5" />
+    <PackageVersion Include="EvilBaschdi.About.Wpf" Version="2023.11.25.1102-develop" />
+    <PackageVersion Include="EvilBaschdi.About.Avalonia" Version="2023.7.7.700-develop" />
+    <PackageVersion Include="EvilBaschdi.Core.Avalonia" Version="2023.11.8.1726-develop" />
+    <PackageVersion Include="EvilBaschdi.Core" Version="2023.11.8.1715-develop" />
+    <PackageVersion Include="EvilBaschdi.DependencyInjection" Version="2023.11.14.1729-develop" />
+    <PackageVersion Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.4" />
+  </ItemGroup>
 </Project>
