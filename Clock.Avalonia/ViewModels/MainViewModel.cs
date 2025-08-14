@@ -14,14 +14,12 @@ public class MainViewModel : ViewModelBase
         InitTimer();
     }
 
-    private string _currentTime;
-
     /// <summary>
     /// </summary>
     public string CurrentTime
     {
-        get => _currentTime;
-        set => this.RaiseAndSetIfChanged(ref _currentTime, value);
+        get;
+        set => this.RaiseAndSetIfChanged(ref field, value);
     }
 
     /// <summary>

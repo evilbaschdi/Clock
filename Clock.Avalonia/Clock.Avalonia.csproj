@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
 	</PropertyGroup>
 
@@ -14,9 +14,10 @@
 		<PackageReference Include="Avalonia.Fonts.Inter" />
 		<PackageReference Include="Avalonia.Themes.Fluent" />
 		<PackageReference Include="Avalonia.ReactiveUI" />
+		<PackageReference Include="EvilBaschdi.Core" />
 		<!--Defined as PrivatAsset since Avalonia.Browser is unable to build otherwise-->
 		<PackageReference Include="EvilBaschdi.Core.Avalonia" PrivateAssets="All" />
-		<PackageReference Include="EvilBaschdi.DependencyInjection" />
+		<PackageReference Include="EvilBaschdi.Core.DependencyInjection" />
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" />
 	</ItemGroup>

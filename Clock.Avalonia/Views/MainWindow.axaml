@@ -6,26 +6,24 @@
         mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="400"
         x:Class="Clock.Avalonia.Views.MainWindow"
         Icon="/Assets/clock.ico"
-        Title="Clock"
-        TransparencyLevelHint="Mica"
-        Background="Transparent">
+        Title="Clock">
 
-	<Panel Name="RootPanel">
-		<ExperimentalAcrylicBorder IsHitTestVisible="False" Name="AcrylicBorder">
-			<ExperimentalAcrylicBorder.Material>
-				<ExperimentalAcrylicMaterial
+    <Panel Name="RootPanel">
+        <ExperimentalAcrylicBorder IsHitTestVisible="False" Name="AcrylicBorder">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
                     TintColor="Black"
                     TintOpacity="1"
                     MaterialOpacity="0.9" />
-			</ExperimentalAcrylicBorder.Material>
-		</ExperimentalAcrylicBorder>
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
 
         <Panel Name="HeaderPanel" IsVisible="False" Margin="0" />
 
         <Panel Name="MainPanel" Margin="0,0,0,0">
             <Panel Name="ContentPanel" Margin="0,7,0,0">
-		        <views:MainView />
+                <views:MainView />
             </Panel>
         </Panel>
-	</Panel>
+    </Panel>
 </Window>

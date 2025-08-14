@@ -27,15 +27,13 @@ public class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         IServiceCollection serviceCollection = new ServiceCollection();
-        IConfigureAvaloniaServices configureAvaloniaServices = new ConfigureAvaloniaServices();
-        IConfigureWindowsAndViewModels configureWindowsAndViewModels = new ConfigureWindowsAndViewModels();
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
         {
-            configureAvaloniaServices.RunFor(serviceCollection);
+            serviceCollection.AddAvaloniaServices();
         }
 
-        configureWindowsAndViewModels.RunFor(serviceCollection);
+        serviceCollection.AddWindowsAndViewModels();
 
         ServiceProvider = serviceCollection.BuildServiceProvider();
 
