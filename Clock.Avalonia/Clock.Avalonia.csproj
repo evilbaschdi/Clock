@@ -13,7 +13,7 @@
 		<PackageReference Include="Avalonia" />
 		<PackageReference Include="Avalonia.Fonts.Inter" />
 		<PackageReference Include="Avalonia.Themes.Fluent" />
-		<PackageReference Include="Avalonia.ReactiveUI" />
+		<PackageReference Include="ReactiveUI.Avalonia" />
 		<PackageReference Include="EvilBaschdi.Core" />
 		<!--Defined as PrivatAsset since Avalonia.Browser is unable to build otherwise-->
 		<PackageReference Include="EvilBaschdi.Core.Avalonia" PrivateAssets="All" />
