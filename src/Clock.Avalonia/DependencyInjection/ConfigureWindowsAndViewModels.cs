@@ -1,4 +1,4 @@
-﻿using Clock.Avalonia.ViewModels;
+using Clock.Avalonia.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Clock.Avalonia.DependencyInjection;

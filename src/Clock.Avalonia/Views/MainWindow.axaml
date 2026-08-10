@@ -1,0 +1,29 @@
+<windowing:FAAppWindow xmlns="https://github.com/avaloniaui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:views="clr-namespace:Clock.Avalonia.Views"
+                       xmlns:windowing="clr-namespace:FluentAvalonia.UI.Windowing;assembly=FluentAvalonia"
+                       mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="400"
+                       x:Class="Clock.Avalonia.Views.MainWindow"
+                       Icon="/Assets/clock.ico"
+                       Title="Clock">
+
+    <Panel Name="RootPanel">
+
+        <Panel Name="TitleBarPanel" Height="30" VerticalAlignment="Top" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="8" Margin="8,0">
+                <!-- App Icon -->
+                <Image Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=windowing:FAAppWindow}}" Width="20" Height="20" VerticalAlignment="Center" />
+                <!-- App Title -->
+                <TextBlock Text="Clock" />
+            </StackPanel>
+        </Panel>
+
+        <Panel Name="MainPanel" Margin="0,30,0,0">
+            <Panel Name="ContentPanel" Margin="0,7,0,0">
+                <views:MainView />
+            </Panel>
+        </Panel>
+    </Panel>
+</windowing:FAAppWindow>

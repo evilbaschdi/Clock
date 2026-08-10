@@ -4,6 +4,7 @@ using Avalonia.Markup.Xaml;
 using Clock.Avalonia.DependencyInjection;
 using Clock.Avalonia.ViewModels;
 using Clock.Avalonia.Views;
+using EvilBaschdi.Core.Avalonia.Themes;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Clock.Avalonia;
@@ -28,11 +29,6 @@ public class App : Application
     {
         IServiceCollection serviceCollection = new ServiceCollection();
 
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime)
-        {
-            serviceCollection.AddAvaloniaServices();
-        }
-
         serviceCollection.AddWindowsAndViewModels();
 
         ServiceProvider = serviceCollection.BuildServiceProvider();
@@ -41,10 +37,19 @@ public class App : Application
         {
             case IClassicDesktopStyleApplicationLifetime desktop:
 
-                desktop.MainWindow = new MainWindow
-                                     {
-                                         DataContext = ServiceProvider.GetRequiredService<MainViewModel>()
-                                     };
+                ThemeEngine.Initialize(this);
+
+                // Line below is needed to remove Avalonia data validation.
+                // Without this line you will get duplicate validations from both Avalonia and CT
+                var mainWindow = new MainWindow
+                                 {
+                                     DataContext = ServiceProvider.GetRequiredService<MainViewModel>()
+                                 };
+
+                ThemeEngine.ApplyThemeToWindow(mainWindow, true);
+
+                desktop.MainWindow = mainWindow;
+
                 break;
             case ISingleViewApplicationLifetime singleViewPlatform:
 

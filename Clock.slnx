@@ -1,4 +1,4 @@
-<Solution>
+﻿<Solution>
   <Folder Name="/Solution Items/">
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
@@ -8,6 +8,8 @@
     <File Path="NuGet.config" />
     <File Path="readme.md" />
   </Folder>
-  <Project Path="Clock.Avalonia.Desktop/Clock.Avalonia.Desktop.csproj" />
-  <Project Path="Clock.Avalonia/Clock.Avalonia.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Clock.Avalonia.Desktop/Clock.Avalonia.Desktop.csproj" />
+    <Project Path="src/Clock.Avalonia/Clock.Avalonia.csproj" />
+  </Folder>
 </Solution>

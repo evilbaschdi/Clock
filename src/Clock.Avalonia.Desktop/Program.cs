@@ -1,5 +1,5 @@
-﻿using Avalonia;
-using EvilBaschdi.Core.Avalonia;
+using Avalonia;
+using EvilBaschdi.Core.Avalonia.AppBuilderImplementations;
 
 namespace Clock.Avalonia.Desktop;
 
@@ -15,5 +15,5 @@ internal class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     // ReSharper disable once MemberCanBePrivate.Global
     public static AppBuilder BuildAvaloniaApp()
-        => new AppBuilderImplementation<App>().Value;
+        => new AppBuilderImplementationToUseReactiveUI<App>().ValueFor(_ => { });
 }
